@@ -21,8 +21,101 @@ public class all extends javax.swing.JFrame {
     /**
      * Creates new form all
      */
+    int actual=-1;
+    int usuarioac=-1;
+    
     public all() {
         initComponents();
+        inve.setModel(new javax.swing.table.DefaultTableModel(
+                        new Object[][]{},
+                        new String[]{
+                            "autor", "genero", "IBMS", "Año Ingresado"
+                        }
+                ) {
+                    Class[] types = new Class[]{
+                        java.lang.String.class, java.lang.String.class , java.lang.String.class, java.lang.String.class, java.lang.String.class
+                    };
+                    boolean[] canEdit = new boolean[]{
+                        false, false,false,false
+                    };
+                    
+                    
+
+                    public Class getColumnClass(int columnIndex) {
+                        return types[columnIndex];
+                    }
+
+                    public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return canEdit[columnIndex];
+                    }
+                });
+        
+                inve.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        // jTable1.getSelectedRow()
+                        int actual = inve.getSelectedRow();
+                        if(actual!=-1){
+                            Libro libro = lista.get(actual);
+                            autor.setText(libro.getAutores());
+                            ano.setText(libro.getAño_escribió());
+                            titulo.setText(libro.getTitulo());
+                            idioma.setText(libro.getIdioma());
+                            ano1.setText(libro.getAño_ingresa()+"");
+                            isb.setText(libro.getIsbn());
+                            editorial.setText(libro.getEditoriales());
+                            genero.setText(libro.getGenero());
+                            
+                        }
+                    }
+
+           
+
+                });
+                
+                 
+                 // tabla usuarios
+        
+                usutt.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        // jTable1.getSelectedRow()
+                        int usuarioac = usutt.getSelectedRow();
+                    }
+
+                });
+                 usutt.setModel(new javax.swing.table.DefaultTableModel(
+                        new Object[][]{},
+                        new String[]{
+                            "Nombre", "Apellido", "Edad", "Codigo"
+                        }
+                ) {
+                    Class[] types = new Class[]{
+                        java.lang.String.class, java.lang.String.class , java.lang.String.class, java.lang.String.class, java.lang.String.class
+                    };
+                    boolean[] canEdit = new boolean[]{
+                        false, false,false,false
+                    };
+                    
+                    
+
+                    public Class getColumnClass(int columnIndex) {
+                        return types[columnIndex];
+                    }
+
+                    public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return canEdit[columnIndex];
+                    }
+                });
+        
+                usutt.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        // jTable1.getSelectedRow()
+                        int IdUsuarioActual = usutt.getSelectedRow();
+                    }
+
+                });
     }
 
     /**
@@ -448,10 +541,23 @@ public class all extends javax.swing.JFrame {
             new String [] {
                 "Autor", "genero", "ISBM", "Año ingresado"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(inve);
 
         most.setText("mostrar");
+        most.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mostMouseClicked(evt);
+            }
+        });
         most.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mostActionPerformed(evt);
@@ -465,19 +571,19 @@ public class all extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(292, 292, 292)
-                        .addComponent(most)))
-                .addContainerGap(201, Short.MAX_VALUE))
+                        .addComponent(most))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95)
                 .addComponent(most)
                 .addContainerGap(429, Short.MAX_VALUE))
         );
@@ -754,10 +860,7 @@ if (evt.getStateChange() == 2) {
                         }
                     }
 
-           @Override
-           public void valueChanged(ListSelectionEvent lse) {
-               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-           }
+           
 
                 });
                 
@@ -805,6 +908,10 @@ if (evt.getStateChange() == 2) {
 
                 });
     }//GEN-LAST:event_mostActionPerformed
+
+    private void mostMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostMouseClicked
+       
+    }//GEN-LAST:event_mostMouseClicked
 
     /**
      * @param args the command line arguments
@@ -910,4 +1017,5 @@ if (evt.getStateChange() == 2) {
     // End of variables declaration//GEN-END:variables
     ArrayList  <Libro> lista=new ArrayList();
     ArrayList  <usuario> listausu=new ArrayList();
+    
 }

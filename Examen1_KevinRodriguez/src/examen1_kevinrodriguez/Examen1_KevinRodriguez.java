@@ -15,9 +15,9 @@ public class Examen1_KevinRodriguez {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       java.awt.EventQueue.invokeLater(new Runnable() {
+      java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new all().setVisible(true);
+                new login().setVisible(true);
             }
         });
        
