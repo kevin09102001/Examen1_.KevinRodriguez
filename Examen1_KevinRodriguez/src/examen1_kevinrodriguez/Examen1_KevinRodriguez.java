@@ -17,9 +17,10 @@ public class Examen1_KevinRodriguez {
     public static void main(String[] args) {
        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new login().setVisible(true);
+                new all().setVisible(true);
             }
         });
+       
     }
     
 }

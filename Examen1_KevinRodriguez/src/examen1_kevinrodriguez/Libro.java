@@ -9,13 +9,12 @@ package examen1_kevinrodriguez;
  *
  * @author Kevin
  */
-public class Libro extends usuario {
+public class Libro  {
 
-    protected String autores, titulo, genero, Editoriales, idioma, estado_libro;
-    protected int isbn, año_escribió;
+    protected String autores, titulo, genero, Editoriales, idioma, estado_libro,isbn, año_escribió,año_ingresa;
+    
 
-    public Libro(String autores, String titulo, String genero, String Editoriales, String idioma, String estado_libro, int isbn, int año_escribió, int codigo, String primer_nombre, String primer_apellido) {
-        super(codigo, primer_nombre, primer_apellido);
+    public Libro(String autores, String titulo, String genero, String Editoriales, String idioma,String año_escribió,String isbn, String año_ingresa,String estado_libro) {
         this.autores = autores;
         this.titulo = titulo;
         this.genero = genero;
@@ -24,6 +23,7 @@ public class Libro extends usuario {
         this.estado_libro = estado_libro;
         this.isbn = isbn;
         this.año_escribió = año_escribió;
+        this.año_ingresa = año_ingresa;
     }
 
     public String getAutores() {
@@ -71,29 +71,42 @@ public class Libro extends usuario {
     }
 
     public void setEstado_libro(String estado_libro) {
-
         this.estado_libro = estado_libro;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
-    public int getAño_escribió() {
+    public String getAño_escribió() {
         return año_escribió;
     }
 
-    public void setAño_escribió(int año_escribió) {
+    public void setAño_escribió(String año_escribió) {
         this.año_escribió = año_escribió;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + "Libro{" + "autores=" + autores + ", titulo=" + titulo + ", genero=" + genero + ", Editoriales=" + Editoriales + ", idioma=" + idioma + ", estado_libro=" + estado_libro + ", isbn=" + isbn + ", a\u00f1o_escribi\u00f3=" + año_escribió + '}';
+    public String getAño_ingresa() {
+        return año_ingresa;
     }
 
+    public void setAño_ingresa(String año_ingresa) {
+        this.año_ingresa = año_ingresa;
+    }
+
+   
+    @Override
+    public String toString() {
+        return  titulo ;
+    }
+    
+
+
+ 
+    
 }
+

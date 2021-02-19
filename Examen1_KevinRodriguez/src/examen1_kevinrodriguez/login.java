@@ -5,12 +5,15 @@
  */
 package examen1_kevinrodriguez;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Kevin
  */
 public class login extends javax.swing.JFrame {
-
+ArrayList admin=new ArrayList();
+ArrayList usua=new ArrayList();
     /**
      * Creates new form login
      */
@@ -27,15 +30,27 @@ public class login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        administra = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        usuario = new javax.swing.JTextField();
+        contra = new javax.swing.JTextField();
         adminis = new javax.swing.JButton();
         usuari = new javax.swing.JButton();
         entrar = new javax.swing.JButton();
+
+        javax.swing.GroupLayout administraLayout = new javax.swing.GroupLayout(administra.getContentPane());
+        administra.getContentPane().setLayout(administraLayout);
+        administraLayout.setHorizontalGroup(
+            administraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        administraLayout.setVerticalGroup(
+            administraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,10 +64,40 @@ public class login extends javax.swing.JFrame {
         jLabel3.setText("Contraseña:");
 
         adminis.setText("Agregar Administrador");
+        adminis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                adminisMouseClicked(evt);
+            }
+        });
+        adminis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminisActionPerformed(evt);
+            }
+        });
 
         usuari.setText("Agregar usuario");
+        usuari.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usuariMouseClicked(evt);
+            }
+        });
+        usuari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuariActionPerformed(evt);
+            }
+        });
 
         entrar.setText("Entrar");
+        entrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                entrarMouseClicked(evt);
+            }
+        });
+        entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -69,20 +114,20 @@ public class login extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2))
+                                .addComponent(contra))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(26, 26, 26)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(142, 142, 142)
                         .addComponent(adminis)
-                        .addGap(71, 71, 71)
+                        .addGap(121, 121, 121)
                         .addComponent(usuari))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(308, 308, 308)
                         .addComponent(entrar)))
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,11 +137,11 @@ public class login extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(contra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(entrar)
                 .addGap(18, 18, 18)
@@ -119,6 +164,50 @@ public class login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarActionPerformed
+      all a=new all();
+      a.setVisible(true);
+      dispose();
+        for (int i = 0; i < admin.size(); i++) {
+            if (admin.get(i)==usuario.getText() && admin.get(i+1)==contra.getText()) {
+               
+            }
+            if (usua.get(i)==usuario.getText() && usua.get(i+1)==contra.getText()) {
+
+            }
+        }
+    }//GEN-LAST:event_entrarActionPerformed
+
+    private void entrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_entrarMouseClicked
+     
+    }//GEN-LAST:event_entrarMouseClicked
+
+    private void usuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariActionPerformed
+        String usu1=usuario.getText(), cont1=contra.getText();
+        usua.add(usu1);
+        usua.add(cont1);
+        usuario.setText("");
+        contra.setText("");
+    }//GEN-LAST:event_usuariActionPerformed
+
+    private void usuariMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuariMouseClicked
+
+    }//GEN-LAST:event_usuariMouseClicked
+
+    private void adminisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminisActionPerformed
+        String usu=usuario.getText(), cont=contra.getText();
+
+        admin.add(usu);
+        admin.add(cont);
+        usuario.setText("");
+        contra.setText("");
+
+    }//GEN-LAST:event_adminisActionPerformed
+
+    private void adminisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_adminisMouseClicked
+
+    }//GEN-LAST:event_adminisMouseClicked
 
     /**
      * @param args the command line arguments
@@ -157,13 +246,14 @@ public class login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adminis;
+    private javax.swing.JDialog administra;
+    private javax.swing.JTextField contra;
     private javax.swing.JButton entrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton usuari;
+    private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }
