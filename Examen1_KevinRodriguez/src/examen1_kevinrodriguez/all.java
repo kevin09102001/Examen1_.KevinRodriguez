@@ -112,7 +112,7 @@ public class all extends javax.swing.JFrame {
                     @Override
                     public void valueChanged(ListSelectionEvent e) {
                         // jTable1.getSelectedRow()
-                        int IdUsuarioActual = usutt.getSelectedRow();
+                        int usuarioac = usutt.getSelectedRow();
                     }
 
                 });
@@ -270,6 +270,8 @@ public class all extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab1", jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(153, 153, 0));
+
         jLabel4.setText("autor");
 
         jLabel5.setText("titulo");
@@ -423,6 +425,8 @@ public class all extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("libro", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(255, 51, 204));
+
         jLabel13.setText("libro");
 
         libros_c.addItemListener(new java.awt.event.ItemListener() {
@@ -530,6 +534,8 @@ public class all extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("eliminar", jPanel3);
+
+        jPanel4.setBackground(new java.awt.Color(204, 153, 0));
 
         inve.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
